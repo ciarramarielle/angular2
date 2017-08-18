@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 
-export class Hero {
-  id: number;
-  name: string;
-}
+import { Hero } from './hero';
 
 const HEROES: Hero[] = [
   { id: 11, name: 'Mr. Nice' },
@@ -23,12 +20,12 @@ const HEROES: Hero[] = [
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <h2>{{ selectedHero.name }} details!</h2>
-    <div><label>id: </label>{{ selectedHero.id }}</div>
-    <div *ngIf="selectedHero">
-      <label>name: </label>
-      <input [(ngModel)]="selectedHero.name" placeholder="name">
-    </div>
+    <!--<h2>{{ selectedHero.name }} details!</h2>-->
+    <!--<div><label>id: </label>{{ selectedHero.id }}</div>-->
+    <!--<div *ngIf="selectedHero">-->
+      <!--<label>name: </label>-->
+      <!--<input [(ngModel)]="selectedHero.name" placeholder="name">-->
+    <!--</div>-->
     
     <h2>My Heroes</h2>
     <ul class="heroes">
@@ -40,6 +37,7 @@ const HEROES: Hero[] = [
         <span class="badge">{{ hero.id }}</span> {{ hero.name }}
       </li>
     </ul>
+    <hero-detail [hero]="selectedHero"></hero-detail>
   `,
   // {{ bound inside HTML }}: interpolation
   styles: [`
